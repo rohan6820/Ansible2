@@ -1,0 +1,18 @@
+  
+- hosts: all
+  vars:
+    - packagename: "httpd"
+  tasks:
+    - package:
+        name: "{{ packagename  }}"
+        state: present
+
+    - name: Copy Web Page
+      get_url:
+         dest: "/var/www/html"
+         url: "https://raw.githubusercontent.com/rohan6820/SampleFile/master/page.html"
+
+    - service:
+         name: "httpd"
+         state: started
+         enabled: yes

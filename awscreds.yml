@@ -1,0 +1,21 @@
+                                                                                       
+
+- hosts: localhost
+  vars_files:
+          - awspwd.yml
+  tasks:
+          - name: Launching EC2 Instance...
+            ec2:
+                    key_name: "key"
+                    instance_type: "t2.micro"
+                    image: "ami-0cd31be676780afa7"
+                    wait: yes
+                    count: 1
+                    vpc_subnet_id: "subnet-3131c979"
+                    assign_public_ip: yes
+                    region: "ap-southeast-1"
+                    state: present
+                    group_id: "sg-01d2271acf1421b47"
+                    aws_access_key: "{{ access_key }}"
+                    aws_secret_key: "{{ secret_key }}"
+
