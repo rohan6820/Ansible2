@@ -6,7 +6,7 @@
   tasks:
           - name: Launching EC2 Instance...
             ec2:
-                    key_name: "key"
+                    key_name: "ansikey"
                     instance_type: "t2.micro"
                     image: "ami-0cd31be676780afa7"
                     wait: yes
